@@ -17,10 +17,10 @@
 
 
 # Read the Data
-data<-read.csv("C:\\Users\\Dr.ooz\\Downloads\\adult_income.csv",header=T)
+data<-read.csv("F:\\Users\\saleh.fares\\Downloads\\adult_income.csv",header=T)
 
 
- 
+
 
 # Show the first few rows of the data
 head(data)
@@ -125,4 +125,19 @@ y_test <- subset(data_test, select = c(income_high_Yes) )
 predictions <- predict(modelfinal, x_test)
 # summarize results
 head(predictions)
+
+
+for(i in 1:length(predictions)){
+  if(predictions[i] >= 0.05){
+    
+    predictions[i] = 1
+    
+  } else {
+    
+    predictions[i] = 0
+    
+  }
+
+}
+
 confusionMatrix(predictions$class, y_test)
