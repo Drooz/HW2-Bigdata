@@ -128,7 +128,7 @@ head(predictions)
 
 
 for(i in 1:length(predictions)){
-  if(predictions[i] >= 0.05){
+  if(predictions[i] >= 0.5){
     
     predictions[i] = 1
     
